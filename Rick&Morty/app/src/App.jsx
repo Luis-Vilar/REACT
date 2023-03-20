@@ -16,8 +16,8 @@ function App() {
   console.log(personajes);
 
   return (
-    <div className="App">
-      <h1>Rick & Morty</h1>
+    <div className="App container ">
+      <h1 className="text-bg-primary " >Rick & Morty</h1>
 
       {personajes ? (
         <div>
