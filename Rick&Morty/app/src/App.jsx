@@ -27,8 +27,9 @@ function App() {
 
   return (
     <div className="container">
+    <header className="header bg-body-secondary">
       <h1 >Rick & Morty</h1>
-
+    </header>
       {personajes ? (
         <div>
           {personajes.results.map((personaje) => (
