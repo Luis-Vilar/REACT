@@ -7,18 +7,16 @@ function Personajes(props) {
   // retornamos el JSX que queremos que se muestre
   return (
     <div
-      className="card border badge bg-secondary text-bg-primary "
-      style={{ width: "25rem", margin: "0 auto" }}
+      className="card border  bg-secondary text-bg-primary w-25 p-5 m-1 mx-auto rounded-3 "
       key={personaje.id}
     >
       {/* Nombre */}
       <h3>{`${personaje.name} `}</h3>
       {/* Imagen */}
       <img
-        className="img-fluid"
+        className="img-fluid rounded-circle "
         src={personaje.image}
         alt={personaje.name}
-        style={{ borderRadius: "50%" }}
       />
       {/* status */}
       <h5>{`Status : ${personaje.status}`}</h5>
