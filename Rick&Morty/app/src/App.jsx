@@ -3,20 +3,24 @@ import Personajes from "./components/Personajes";
 import { UsingContext } from "./contexts/usingContext";
 
 function App() {
-  const contexto = UsingContext();
-  const personajes = contexto.personajes;
-  console.log (personajes);
+  const personajes = UsingContext().personajes;
+  personajes
+    ? console.table(personajes.results)
+    : console.log("Pobablemente cargando datos.. hay internet?");
+
   return (
-    <div className="container-fluid">
+    <div className="container">
       <header className="header bg-body-secondary mx-auto text-center fixed-top">
-        <h1 className="m-2">Rick & Morty</h1>
+        <h1 className="m-1">Rick & Morty</h1>
         <h5 className="text-end"> by Federico Vilar</h5>
       </header>
       //renderizado condicional si existe personaje
       {personajes ? (
-        <div className="d-flex flex-wrap ">
+        <div className="row">
           {personajes.results.map((personaje) => (
-            <Personajes personaje={personaje} />
+            <div key={personaje.id} className="col-12 col-md-6 col-lg-4 col-xl-3">
+              <Personajes  personaje={personaje} />
+            </div>
           ))}
         </div>
       ) : (

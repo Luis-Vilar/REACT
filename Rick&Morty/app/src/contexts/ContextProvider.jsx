@@ -28,7 +28,7 @@ useEffect(() => {
 }, []);
 // declaramos el estado personajes y su función para actualizarlo
 const [personajes, setPersonajes] = useState(null);
-console.table(personajes);
+
 const value = { personajes, setPersonajes };
 return (
   // envolvemos el componente con el contexto

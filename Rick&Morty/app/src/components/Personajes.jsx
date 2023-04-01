@@ -7,8 +7,9 @@ function Personajes(props) {
   // retornamos el JSX que queremos que se muestre
   return (
     <div
-      className="card border  bg-secondary text-bg-primary w-25 p-5 m-1 mx-auto rounded-3 "
+      className="card border  bg-secondary mx-auto rounded-3 "
       key={personaje.id}
+      style={{ height: "35rem" }}
     >
       {/* Nombre */}
       <h3>{`${personaje.name} `}</h3>
