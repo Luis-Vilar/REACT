@@ -2,7 +2,7 @@
 import Personajes from "./Personajes";
 import { UsingContext } from "../contexts/usingContext";
 
-function App() {
+function AppRickMorty() {
   const personajes = UsingContext().personajes;
   personajes
     ? console.table(personajes.results)
@@ -31,4 +31,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppRickMorty;
