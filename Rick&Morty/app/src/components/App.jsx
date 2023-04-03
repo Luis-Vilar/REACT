@@ -1,6 +1,6 @@
 // importamos el componente Personajes
-import Personajes from "./components/Personajes";
-import { UsingContext } from "./contexts/usingContext";
+import Personajes from "./Personajes";
+import { UsingContext } from "../contexts/usingContext";
 
 function App() {
   const personajes = UsingContext().personajes;
@@ -9,7 +9,7 @@ function App() {
     : console.log("Pobablemente cargando datos.. hay internet?");
 
   return (
-    <div className="container">
+      <div className="container">
       <header className="header bg-body-secondary mx-auto text-center fixed-top">
         <h1 className="m-1">Rick & Morty</h1>
         <h5 className="text-end"> by Federico Vilar</h5>
@@ -27,6 +27,7 @@ function App() {
         <div>Loading...</div>
       )}
     </div>
+    
   );
 }
 
