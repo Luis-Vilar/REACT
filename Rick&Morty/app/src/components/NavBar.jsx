@@ -10,6 +10,9 @@ function NavBar() {
             <li>
                 <Link to={'/rick&morty'}>Rick & Morty</Link>
             </li>
+            <li>
+                <Link to={'/fake'}>Link fake test error page</Link>
+            </li>
         </ul>
     </navbar>
 </div>
