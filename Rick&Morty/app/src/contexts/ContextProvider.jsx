@@ -3,35 +3,40 @@ import { createContext } from "react";
 // importamos useState y useEffect de React
 import { useState, useEffect } from "react";
 // creamos el contexto
+//importamos axios
+import axios from "axios";
 export const Context = createContext();
 
-export  default function ContextProvider({ children }) {
+export default function ContextProvider({ children }) {
 
+    // declaramos el estado personajes y su función para actualizarlo
+    const [personajes, setPersonajes] = useState(null);
 
+    const value = { personajes, setPersonajes };
+  // creamos una función que hace una petición a la API
 
-// funcion asincrona para obtener los datos de la API
-async function fetchData(state) {
-  // fetch() es una función nativa de JavaScript que permite hacer peticiones HTTP
-  // await espera a que la petición se resuelva
+  function getPersonajes() {
+    axios
+      .get("https://rickandmortyapi.com/api/character")
+      .then((response) => {
+        setPersonajes(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
-  const response = await fetch("https://rickandmortyapi.com/api/character");
-  const data = await response.json();
-  // colocamos los datos en el estado que recibimos por parámetro
-  state(data);
-}
+  // useEffect() es una función nativa de React que permite ejecutar
+  // código cuando el componente se monta o se actualiza
+  // en este caso, cuando el componente se monta, ejecutamos la función axiosData()
+  // pasándole la función setPersonajes() para que actualice el estado
+  // de personajes
+  useEffect(() => {
+    getPersonajes();
+  }, []);
 
-// useEffect() es una función nativa de React que permite ejecutar
-// código cuando el componente se monta o se actualiza
-// en este caso, cuando el componente se monta, ejecutamos la función fetchData()
-useEffect(() => {
-  fetchData(setPersonajes);
-}, []);
-// declaramos el estado personajes y su función para actualizarlo
-const [personajes, setPersonajes] = useState(null);
-
-const value = { personajes, setPersonajes };
-return (
-  // envolvemos el componente con el contexto
-  <Context.Provider value={value}>{children}</Context.Provider>
-);
+  return (
+    // envolvemos el componente con el contexto
+    <Context.Provider value={value}>{children}</Context.Provider>
+  );
 }

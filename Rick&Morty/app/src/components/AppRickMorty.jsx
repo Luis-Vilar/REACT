@@ -1,9 +1,9 @@
 // importamos el componente Personajes
 import Personajes from "./Personajes";
-import { UsingContext } from "../contexts/usingContext";
+import { personajes } from "../contexts/usingContext";
 
 function AppRickMorty() {
-  const personajes = UsingContext().personajes;
+  const personajes = personajes;
   personajes
     ? console.table(personajes.results)
     : console.log("Pobablemente cargando datos.. hay internet?");
